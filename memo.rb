@@ -1,24 +1,23 @@
 require "csv"
 
-
-
 class Newmemo
   
-  def new_memo
-puts "【新規のファイル名を入力してください】"
+ def new_memo
+   puts "【新規のファイル名を入力してください】"
 
-memo_type = gets.to_s
+   memo_type = gets.to_s
 
-file = File.open(memo_type,"w")
+   file = File.open(memo_type,"w")
 
-puts "【本文を入力してください】"
+   puts "【本文を入力してください】"
+   puts "【完了したらCtrl+Dを押してください】"
 
-memo_main = gets.to_s
+   memo_main = STDIN.read
 
-file.puts memo_main
+   file.puts memo_main
 
-file.close
-end
+   file.close
+ end
 
 end
 
@@ -36,7 +35,7 @@ class Existingmemo
     
     puts file.read
     
-    existing_memo_main = gets.to_s
+    existing_memo_main = STDIN.read
     
     file.puts existing_memo_main
     
